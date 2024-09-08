@@ -11,15 +11,16 @@ int main() {
     Robot robot2;
     Robot robot3;
     Robot robot4;
-    Robot robot5;
+    Robot robot7(7);
+
 
     robot1.printSerialNumber();
     robot2.printSerialNumber();
     robot3.printSerialNumber();
     robot4.printSerialNumber();
-    robot5.printSerialNumber();
+    robot7.printSerialNumber();
 
-    cout << "Кол-во роботов: " << Robot::getObjectCount() << '\n';
+    cout << "\nКол-во роботов: " << Robot::getCount() << '\n';
 
     return 0;
 }

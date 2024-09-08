@@ -1,7 +1,6 @@
 ﻿#include "Classes.h"
 
 
-
 // Town
 void Town::show() {
 	cout << "Название города - " << m_name << "\n\n";
