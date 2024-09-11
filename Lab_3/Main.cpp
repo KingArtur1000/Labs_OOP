@@ -10,7 +10,7 @@ int main() {
     C equation;
 
     cout << "Введите коэффициенты квадратного уравнения ax^2 + bx + c = 0" << '\n';
-    equation.get();
+    equation.request();
 
     cout << "\nВведенное уравнение:" << '\n';
     equation.show();

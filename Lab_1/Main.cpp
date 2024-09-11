@@ -22,5 +22,6 @@ int main() {
 
     cout << "\nКол-во роботов: " << Robot::getCount() << '\n';
 
+
     return 0;
 }

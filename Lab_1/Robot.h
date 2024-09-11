@@ -19,7 +19,6 @@ public:
         this->serialNumber = serialNumber; // Присваиваем индивидуальный порядковый номер
     }
 
-
     ~Robot() {
         robotsCount--; // Уменьшаем счетчик при удалении робота
     }

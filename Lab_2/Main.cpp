@@ -36,41 +36,41 @@ int main() {
 
 
     result = number - money1;
-    cout << "\tОперация #5:\n";
+    cout << "\tОперация #4:\n";
     cout << number << " - " << "money1 = " << result << "\n\n";
 
     result = money1 - number;
-    cout << "\tОперация #6:\n";
+    cout << "\tОперация #5:\n";
     cout << "money1 - " << number << " = " << result << "\n\n";
 
     result = money1 - money2;
-    cout << "\tОперация #7:\n";
+    cout << "\tОперация #6:\n";
     cout << "money1 - money2 = " << result << "\n\n";
 
 
     result = number * money1;
-    cout << "\tОперация #8:\n";
+    cout << "\tОперация #7:\n";
     cout << number << " * " << "money1 = " << result << "\n\n";
 
     result = money1 * number;
-    cout << "\tОперация #9:\n";
+    cout << "\tОперация #8:\n";
     cout << "money1 * " << number << " = " << result << "\n\n";
 
     result = money1 * money2;
-    cout << "\tОперация #10:\n";
+    cout << "\tОперация #9:\n";
     cout << "money1 * money2 = " << result << "\n\n";
 
 
     result = number / money1;
-    cout << "\tОперация #11:\n";
+    cout << "\tОперация #10:\n";
     cout << number << " / " << "money1 = " << result << "\n\n";
 
     result = money1 / number;
-    cout << "\tОперация #12:\n";
+    cout << "\tОперация #11:\n";
     cout << "money1 / " << number << " = " << result << "\n\n";
 
     result = money1 / money2;
-    cout << "\tОперация #6:\n";
+    cout << "\tОперация #12:\n";
     cout << "money1 / money2 = " << result << "\n\n";
 
     return 0;

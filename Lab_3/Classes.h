@@ -12,7 +12,7 @@ protected:
     double a;
 
 public:
-    A(double a_val = 0) : a(a_val) {}   // Версия со списком инициализации
+    A(double a_val = 0) : a{a_val} {}   // Версия со списком инициализации
 
     /*  Версия с присваиванием в теле конструктора:
     * 
@@ -24,18 +24,12 @@ public:
     void show() {
         cout << '\t';
 
-        if (a == 1) {
-            cout << "x^2 ";
-        }
-        else if (a == -1) {
-            cout << "-x^2 ";
-        }
-        else {
-            cout << a << "x^2 ";
-        }
+        if (a == 1) cout << "x^2 "; 
+        else if (a == -1) cout << "-x^2 ";
+        else cout << a << "x^2 ";
     }
 
-    void get() {
+    void request() {
         cout << "Введите a --> "; cin >> a;
     }
 };
@@ -46,24 +40,18 @@ protected:
     double b;
 
 public:
-    B(double a_val = 0, double b_val = 0) : A(a_val), b(b_val) {}
+    B(double a_val = 0, double b_val = 0) : A{ a_val }, b{ b_val } {}
 
     void show() {
         A::show();
 
-        if (b == 1) {
-            cout << "x ";
-        }
-        else if (b == -1) {
-            cout << "-x ";
-        }
-        else {
-            cout << b << "x ";
-        }
+        if (b == 1) cout << "x ";
+        else if (b == -1) cout << "-x ";
+        else cout << b << "x ";
     }
 
-    void get() {
-        A::get();
+    void request() {
+        A::request();
         cout << "Введите b --> "; cin >> b;
     }
 };
@@ -74,15 +62,15 @@ private:
     double c;
 
 public:
-    C(double a_val = 0, double b_val = 0, double c_val = 0) : B(a_val, b_val), c(c_val) {}
+    C(double a_val = 0, double b_val = 0, double c_val = 0) : B{ a_val, b_val }, c{ c_val } {}
 
     void show() {
         B::show();
         cout << c << '\n';
     }
 
-    void get() {
-        B::get();
+    void request() {
+        B::request();
         cout << "Введите c --> "; cin >> c;
     }
 
