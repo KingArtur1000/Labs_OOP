@@ -8,10 +8,8 @@
 
 using std::string;
 using std::cout;
-using std::vector;
-using std::find_if;
+using std::vector;	
 using std::to_string;
-using std::iter_swap;
 
 
 
