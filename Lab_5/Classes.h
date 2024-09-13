@@ -22,7 +22,6 @@ public:
 
 
     virtual void show_info() const = 0;
-
 };
 
 
@@ -37,7 +36,7 @@ public:
 
 
     void show_info() const override {
-        cout << "Книга: " << m_title << "\nАвтор: " << m_author << "\nГод публикации: " << m_year << "\n\n";
+        cout << "Название книги: " << m_title << "\nАвтор: " << m_author << "\nГод публикации: " << m_year << "\n\n";
     }
 };
 
@@ -52,7 +51,7 @@ public:
 
 
     void show_info() const override {
-        cout << "Газета: " << m_title << "\nИздательство: " << m_publisher << "\nГод публикации: " << m_year << "\n\n";
+        cout << "Заголовок газеты: " << m_title << "\nИздательство: " << m_publisher << "\nГод публикации: " << m_year << "\n\n";
     }
 };
 
