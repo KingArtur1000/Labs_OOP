@@ -60,7 +60,15 @@ public:
 	friend string operator/(const long double& value, const bMoney& money);
 	friend string operator/(const bMoney& money, const long double& value);
 	friend string operator/(const bMoney& money1, const bMoney& money2);
+
+	friend bMoney operator++(bMoney& money1);
 };
+
+bMoney operator++( bMoney& money1)
+{
+	money1.m_moneyValue += 1;
+	return money1;
+}
 
 
 string operator+(const long double& value, const bMoney& money) {

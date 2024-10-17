@@ -1,9 +1,9 @@
-#pragma once
+п»ї#pragma once
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <numeric>    // Для accumulate 
+#include <numeric>    // пїЅпїЅпїЅ accumulate 
 
 
 using std::cout;
@@ -72,7 +72,7 @@ public:
 
     Matrix operator+(const Matrix& other) const {
         if (rows != other.rows || columns != other.columns) {
-            throw invalid_argument("Размеры матриц не совпадают!");
+            throw invalid_argument("Р Р°Р·РјРµСЂС‹ РјР°С‚СЂРёС† РЅРµ СЃРѕРІРїР°РґР°СЋС‚!");
         }
 
         Matrix result(rows, columns);
@@ -89,7 +89,7 @@ public:
 
     bool operator<(const Matrix& other) const {
         if (rows != other.rows || columns != other.columns) {
-            throw invalid_argument("Размеры матриц не совпадают!");
+            throw invalid_argument("Р Р°Р·РјРµСЂС‹ РјР°С‚СЂРёС† РЅРµ СЃРѕРІРїР°РґР°СЋС‚!");
         }
 
         for (size_t i = 0; i < rows; ++i) {

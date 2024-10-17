@@ -73,5 +73,7 @@ int main() {
     cout << "\tОперация #12:\n";
     cout << "money1 / money2 = " << result << "\n\n";
 
+    cout << money1++;
+
     return 0;
 }

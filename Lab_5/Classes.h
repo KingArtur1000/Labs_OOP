@@ -21,7 +21,7 @@ public:
         : m_title(title), m_year(year) {}
 
 
-    virtual void show_info() const = 0;
+    virtual void showInfo() const = 0;
 };
 
 
@@ -34,8 +34,7 @@ public:
         : PrintPublication(title, year), m_author(author) {}
 
 
-
-    void show_info() const override {
+    void showInfo() const override {   // override - маркер явного переопределения
         cout << "Название книги: " << m_title << "\nАвтор: " << m_author << "\nГод публикации: " << m_year << "\n\n";
     }
 };
@@ -50,7 +49,7 @@ public:
         : PrintPublication(title, year), m_publisher(publisher) {}
 
 
-    void show_info() const override {
+    void showInfo() const override {
         cout << "Заголовок газеты: " << m_title << "\nИздательство: " << m_publisher << "\nГод публикации: " << m_year << "\n\n";
     }
 };
@@ -74,14 +73,7 @@ public:
 
     void displayAll() {
         for (auto &publication : publications) {
-            publication->show_info();
-        }
-    }
-
-
-    ~PublicationCatalog() {
-        for (auto pub : publications) {
-            delete pub;
+            publication->showInfo();
         }
     }
 };
