@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <numeric>    // ��� accumulate 
+#include <numeric>    // for  accumulate 
 
 
 using std::cout;
