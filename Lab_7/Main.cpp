@@ -1,4 +1,84 @@
-#include "Lab_7.h"
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <random>
+#include <exception>
+
+
+using std::vector;
+using std::exception;
+using std::cout;
+using std::cerr;
+
+
+class CustomException : public exception {
+public:
+    const char* what() const noexcept override {
+        return "Произошло пользовательское исключение (^-^)";
+    }
+};
+
+
+class ArrayManager {
+public:
+    vector<double> createArrayA(int n1) {
+        vector<double> a(n1);
+        for (int i = 0; i < n1; i++) {
+            double x = -1.0 + i * 0.2;
+            if (x < -1.0 || x > 3.0) {
+                a[i] = 0.0;
+            }
+            else {
+                try {
+                    a[i] = std::log(1.0 - x);
+                }
+                catch (const exception& e) {
+                    cerr << "Произошло исключение: " << e.what() << '\n';
+                    a[i] = 0.0;
+                }
+            }
+        }
+        return a;
+    }
+
+    vector<double> createArrayB(int n2) {
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_real_distribution<> dis(-10.0, 10.0);
+
+        vector<double> b(n2);
+        for (int i = 0; i < n2; i++) {
+            b[i] = dis(gen);
+        }
+        return b;
+    }
+
+    vector<double> createArrayC(const vector<double>& a, const vector<double>& b) {
+        vector<double> c(a.size());
+        for (size_t i = 0; i < a.size(); i++) {
+            try {
+                if (b[i] == 0.0) {
+                    throw CustomException();
+                }
+                if (i + 1 < a.size()) {
+                    c[i] = a[i + 1] - 1.0 / b[i];
+                }
+                else {
+                    c[i] = 0.0;
+                }
+            }
+            catch (const CustomException& e) {
+                cerr << "Произошло исключение: " << e.what() << '\n';
+                c[i] = 0.0;
+            }
+            catch (const exception& e) {
+                cerr << "Произошло исключение: " << e.what() << '\n';
+                c[i] = 0.0;
+            }
+        }
+        return c;
+    }
+};
 
 
 int main() {
@@ -7,61 +87,32 @@ int main() {
     setlocale(0, "");
 
 
-    const int n1 = 21; // Для массива a
-    const int n2 = 25; // Для массива b
-    const int n3 = 19; // Для массива c
-
-    vector<double> a;
-    a.resize(n1);
-    vector<double> b;
-    b.resize(n2);
-    vector<double> c;
-    c.resize(n3);
+    int n1 = 10, n2 = 15, n3 = 12;
 
 
-    // Заполнение массива a
-    cout << "Заполнение массива a:\n";
-    double x = -1.0;
-    for (int i = 0; i < n1; ++i, x += 0.2) {
-        try {
-            a[i] = function(x);
-            cout << "a[" << i << "] = " << a[i] << '\n';
-        }
-        catch (const LogarithmException& e) {
-            cerr << "Ошибка: " << e.what() << " для x = " << x << '\n';
-            a[i] = 0;
-        }
+    ArrayManager manager;
+    vector<double> a = manager.createArrayA(n1);
+    vector<double> b = manager.createArrayB(n2);
+    vector<double> c = manager.createArrayC(a, b);
+
+    // Вывод массивов
+    cout << "Массив a: ";
+    for (double value : a) {
+        cout << value << " ";
     }
+    cout << '\n';
 
-
-    // Заполнение массива b псевдослучайными числами
-    cout << "\nЗаполнение массива b:\n";
-    srand(0); // Инициализация генератора случайных чисел
-    const int range = 200; // Для диапазона от -100 до 100
-    for (int i = 0; i < n2; ++i) {
-        // Генерируем случайное число от -10 до 10
-        int randomInt = rand() % (range + 1) - 100;
-        b[i] = static_cast<double>(randomInt) / 10.0;
-        cout << "b[" << i << "] = " << b[i] << '\n';
+    cout << "Массив b: ";
+    for (double value : b) {
+        cout << value << " ";
     }
+    cout << '\n';
 
-
-    // Формирование массива c
-    cout << "\nФормирование массива c:\n";
-    for (int i = 1; i < n3; ++i) {
-        try {
-            if (b[i - 1] == 0) {
-                throw DivisionByZeroException();
-            }
-            c[i] = a[i + 1] - 1 / b[i - 1];
-            cout << "c[" << i << "] = " << c[i] << '\n';
-        }
-        catch (const DivisionByZeroException& e) {
-            cerr << "Ошибка при вычислении c[" << i << "]: " << e.what() << '\n';
-            c[i] = 0;
-        }
+    cout << "Массив c: ";
+    for (double value : c) {
+        cout << value << " ";
     }
-
+    cout << '\n';
 
     return 0;
 }
