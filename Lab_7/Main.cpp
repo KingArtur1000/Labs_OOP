@@ -13,7 +13,7 @@ using std::cerr;
 
 class CustomException : public exception {
 public:
-    const char* what() const noexcept override {
+    const char* what() const override {
         return "Произошло пользовательское исключение (^-^)";
     }
 };
@@ -30,7 +30,7 @@ public:
             }
             else {
                 try {
-                    a[i] = std::log(1.0 - x);
+                    a[i] = log(1.0 - x);
                 }
                 catch (const exception& e) {
                     cerr << "Произошло исключение: " << e.what() << '\n';
@@ -41,20 +41,25 @@ public:
         return a;
     }
 
+
     vector<double> createArrayB(int n2) {
         std::random_device rd;
         std::mt19937 gen(rd());
         std::uniform_real_distribution<> dis(-10.0, 10.0);
 
         vector<double> b(n2);
+
         for (int i = 0; i < n2; i++) {
             b[i] = dis(gen);
         }
+
         return b;
     }
 
+
     vector<double> createArrayC(const vector<double>& a, const vector<double>& b) {
         vector<double> c(a.size());
+
         for (size_t i = 0; i < a.size(); i++) {
             try {
                 if (b[i] == 0.0) {
