@@ -21,14 +21,14 @@ public:
     void addShoes(const Shoes& shoe);
     void getInfo(const Shoes& shoe);
     Shoes findShoesByArticul(const std::string& articulNumber) const;
-    std::vector<Shoes> findLadiesShoes() const;
+    vector<Shoes> findLadiesShoes() const;
     void updateShoeQuantity(const std::string& articulNumber, int change);
 
     void loadFromFile(const std::string& filename);
     void saveToFile(const std::string& filename) const;
 
 private:
-    std::vector<Shoes> m_shoes;
+    vector<Shoes> m_shoes;
 };
 
 #endif // SHOESMANAGER_H

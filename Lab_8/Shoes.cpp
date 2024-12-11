@@ -1,5 +1,6 @@
 #include "Shoes.h"
 
+
 Shoes::Shoes(string articulNumber, string name, int quantity, double price)
     : m_articulNumber(std::move(articulNumber)), m_name(std::move(name)), m_quantity(quantity), m_price(price) {}
 
