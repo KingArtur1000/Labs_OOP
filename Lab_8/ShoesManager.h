@@ -1,11 +1,11 @@
-#ifndef SHOESMANAGER_H
+﻿#ifndef SHOESMANAGER_H
 #define SHOESMANAGER_H
 
 #include <iostream>
 #include <vector>
-#include "Shoes.h"
 #include <fstream>
 #include <sstream>
+#include "Shoes.h"
 
 
 using std::cout;

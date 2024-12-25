@@ -1,4 +1,4 @@
-#include "Shoes.h"
+﻿#include "Shoes.h"
 
 
 Shoes::Shoes(string articulNumber, string name, int quantity, double price)

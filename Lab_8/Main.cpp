@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "ShoesManager.h"
 
 
@@ -16,42 +16,42 @@ int main() {
     ShoesManager manager;
     manager.loadFromFile("shoes.txt");
 
-    // Добавление обуви в ассортимент
-    cout << "\tДобавление обуви:\n";
-    manager.addShoes(Shoes("Д101", "Туфли", 100, 450.0));
-    manager.addShoes(Shoes("М202", "Ботинки", 80, 250.0));
-    manager.addShoes(Shoes("П303", "Сандалии", 50, 150.0));
+    // Р”РѕР±Р°РІР»РµРЅРёРµ РѕР±СѓРІРё РІ Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚
+    cout << "\tР”РѕР±Р°РІР»РµРЅРёРµ РѕР±СѓРІРё:\n";
+    manager.addShoes(Shoes("Р”101", "РўСѓС„Р»Рё", 100, 450.0));
+    manager.addShoes(Shoes("Рњ202", "Р‘РѕС‚РёРЅРєРё", 80, 250.0));
+    manager.addShoes(Shoes("Рџ303", "РЎР°РЅРґР°Р»РёРё", 50, 150.0));
 
     cout << '\n';
 
-    // Поиск обуви по артикулу
-    cout << "\tПоиск обуви по артикулу Д101\n";
-    Shoes shoeC = manager.findShoesByArticul("Д101");
-    cout << "Артикул: " << shoeC.getArticulNumber() << ", Наименование: " << shoeC.getName() << ", Количество: " << shoeC.getQuantity() << ", Стоимость: " << shoeC.getPrice() << '\n';
+    // РџРѕРёСЃРє РѕР±СѓРІРё РїРѕ Р°СЂС‚РёРєСѓР»Сѓ
+    cout << "\tРџРѕРёСЃРє РѕР±СѓРІРё РїРѕ Р°СЂС‚РёРєСѓР»Сѓ Р”101\n";
+    Shoes shoeC = manager.findShoesByArticul("Р”101");
+    cout << "РђСЂС‚РёРєСѓР»: " << shoeC.getArticulNumber() << ", РќР°РёРјРµРЅРѕРІР°РЅРёРµ: " << shoeC.getName() << ", РљРѕР»РёС‡РµСЃС‚РІРѕ: " << shoeC.getQuantity() << ", РЎС‚РѕРёРјРѕСЃС‚СЊ: " << shoeC.getPrice() << '\n';
 
     cout << '\n';
 
-    // Получение списка дамской обуви
+    // РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° РґР°РјСЃРєРѕР№ РѕР±СѓРІРё
     vector<Shoes> ladiesShoes = manager.findLadiesShoes();
-    cout << "\tАссортимент дамской обуви:" << '\n';
+    cout << "\tРђСЃСЃРѕСЂС‚РёРјРµРЅС‚ РґР°РјСЃРєРѕР№ РѕР±СѓРІРё:" << '\n';
     for (const auto& shoe : ladiesShoes) {
         manager.getInfo(shoe);
     }
-    cout << "Общее количество пар дамской обуви: " << ladiesShoes.size() << '\n';
+    cout << "РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїР°СЂ РґР°РјСЃРєРѕР№ РѕР±СѓРІРё: " << ladiesShoes.size() << '\n';
 
     cout << '\n';
 
-    // Обновление количества пар обуви
-    cout << "\tОбновление кол-ва пар обуви:\n";
+    // РћР±РЅРѕРІР»РµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° РїР°СЂ РѕР±СѓРІРё
+    cout << "\tРћР±РЅРѕРІР»РµРЅРёРµ РєРѕР»-РІР° РїР°СЂ РѕР±СѓРІРё:\n";
     string articulToUpdate;
-    cout << "Введите артикул обуви для обновления количества --> ";
+    cout << "Р’РІРµРґРёС‚Рµ Р°СЂС‚РёРєСѓР» РѕР±СѓРІРё РґР»СЏ РѕР±РЅРѕРІР»РµРЅРёСЏ РєРѕР»РёС‡РµСЃС‚РІР° --> ";
     cin >> articulToUpdate;
     int quantityChange = 0;
-    cout << "Введите на сколько изменить количество --> ";
+    cout << "Р’РІРµРґРёС‚Рµ РЅР° СЃРєРѕР»СЊРєРѕ РёР·РјРµРЅРёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ --> ";
     cin >> quantityChange;
     manager.updateShoeQuantity(articulToUpdate, quantityChange);
 
-    // Сохранение изменений в файл
+    // РЎРѕС…СЂР°РЅРµРЅРёРµ РёР·РјРµРЅРµРЅРёР№ РІ С„Р°Р№Р»
     manager.saveToFile("shoes.txt");
 
     return 0;

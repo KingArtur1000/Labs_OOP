@@ -1,28 +1,28 @@
-#include "ShoesManager.h"
+п»ї#include "ShoesManager.h"
 
 
 void ShoesManager::addShoes(const Shoes& newShoe) {
     bool found = false;
     for (auto& shoe : m_shoes) {
         if (shoe.getArticulNumber() == newShoe.getArticulNumber()) {
-            // Обновляем существующую обувь
+            // РћР±РЅРѕРІР»СЏРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‰СѓСЋ РѕР±СѓРІСЊ
             shoe = newShoe;
-            cout << "Данные обуви обновлены: " << shoe.getArticulNumber() << " " << shoe.getName() << " " << shoe.getPrice() << '\n';
+            cout << "Р”Р°РЅРЅС‹Рµ РѕР±СѓРІРё РѕР±РЅРѕРІР»РµРЅС‹: " << shoe.getArticulNumber() << " " << shoe.getName() << " " << shoe.getPrice() << '\n';
             found = true;
             break;
         }
     }
 
     if (!found) {
-        // Добавляем новую обувь
+        // Р”РѕР±Р°РІР»СЏРµРј РЅРѕРІСѓСЋ РѕР±СѓРІСЊ
         m_shoes.push_back(newShoe);
-        std::cout << "Обувь добавлена: " << newShoe.getArticulNumber() << " " << newShoe.getName() << " " << newShoe.getPrice() << '\n';
+        std::cout << "РћР±СѓРІСЊ РґРѕР±Р°РІР»РµРЅР°: " << newShoe.getArticulNumber() << " " << newShoe.getName() << " " << newShoe.getPrice() << '\n';
     }
 }
 
 
 void ShoesManager::getInfo(const Shoes& shoe) {
-    cout << "Артикул: " << shoe.getArticulNumber() << ", Наименование: " << shoe.getName() << ", Количество: " << shoe.getQuantity() << '\n';
+    cout << "РђСЂС‚РёРєСѓР»: " << shoe.getArticulNumber() << ", РќР°РёРјРµРЅРѕРІР°РЅРёРµ: " << shoe.getName() << ", РљРѕР»РёС‡РµСЃС‚РІРѕ: " << shoe.getQuantity() << '\n';
 }
 
 
@@ -39,7 +39,7 @@ Shoes ShoesManager::findShoesByArticul(const string& articulNumber) const {
 vector<Shoes> ShoesManager::findLadiesShoes() const {
     vector<Shoes> ladiesShoes;
     for (const auto& shoe : m_shoes) {
-        if (shoe.getArticulNumber()[0] == 'Д') {
+        if (shoe.getArticulNumber()[0] == 'Р”') {
             ladiesShoes.push_back(shoe);
         }
     }
@@ -72,7 +72,7 @@ void ShoesManager::loadFromFile(const string& filename) {
         file.close();
     }
     else {
-        cout << "\tФайл не найден!";
+        cout << "\tР¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ!";
     }
 }
 
